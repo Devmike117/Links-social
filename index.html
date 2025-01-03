@@ -344,7 +344,14 @@
                             
                         ></iframe>
                         <footer>
-                            <p>Desarrollado por Mike Gabriel.<p>&copy;Todos los derechos reservados 2024</p>
+                            <p>Desarrollado por Mike Gabriel.</p>
+<p>&copy;Todos los derechos reservados <span id="currentYear"></span></p>
+
+<script>
+  // actualizar año automaticamente
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+
                         </footer>
                 
                         
