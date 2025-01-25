@@ -326,69 +326,6 @@
                                                         <span class=" item-title text-center">For you 𓆩❤︎𓆪</span>
                         </a>
                     </div>
-        <div class="page-item-wrap relative">
-    <div class="page-item flex-both-center absolute"></div>
-    <a target="_blank" class="page-item-each py-10 flex-both-center"
-       data-id="261711" data-type="page_item">
-        <img
-            class="link-each-image"
-            data-src="developer.png"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACkklEQVRYhe2X246kMAxEK5AE/v9fewi57sOoLBMSelpa7bwskkWrp8EnZaecMa21hl+8lt9M/h8AAOynD9Ra5bMxBsaYfwOQc0YpBbVWsG+NMViWRWJd178P0FpDSgkpJeScUWsVFTTAuq6XWJafVfcRoLWGGKNESklU4KWTW2svd8KxVKNyPQLEGHGepwSVYBmoAJP2odXoIXifAuScBeA4jgsEVSAAEzrnLtFDaJBHBbT0IQSEEHAcB0IIiDFKLwCQ1Tvn4L2XKKXI908QQ4CcM1JKFwW+vr5ECapABZh82zbZLaUUeO9Ra4VzDrXWG8QQoLWGnPOlBFTg9XqJCqUUUYCr7reqDmstWms3FW4AtVZRoFeBSpzniZzz9wqshfce+75f/EE3m675uq4CMgSgfKWUqRIhBKSUBCDnLMl7Y+p3gVZ6qkCt9Qah1egBmNhaixgjnHPynLUWpZSb9DSqC0BfN8Iw+FKGblrCErx/lu9bluXqpE8A/XefXv179J3X1Ii0VL3dUnYAN9fTNdfbbTY1bwDaMpmcSbz3SCnJVgW+u3rbNtmK2op1Q87mgR0l16vWLrdtmxhKvw23bZMgiLZjDTP1gdGqmXzfd/F/55w44bqul99oCAKMpuNwFwD38UqHY+daa2UiaivWKrEc/VDSCnDBUwC9ej1+ucfZzboxdVLGqDl1Yz4C6ORMxr0+Og9wtT8ZxY/TkO6lTYR9wXL0AP2hpJf8oxMRk+nVM1F/JmQjjs6Es+2nzWhqRByfT1AagIDvVt074qMTcnQSgLWfHcufks+s/fFQqs/5fLFWpQfQ9jtaOQeSvt7+X0Bp+dK+LDqp9v7+MsbINLyclN4BaNea/e3pN/3vAVxK+AfJE4QO4kyDUAAAAABJRU5ErkJggg=="
-            alt="Flowers"
-        />
-        <span class="item-title text-center">Proyecto reciente:</span>
-    </a>
-
-<script>
-  const githubUsername = 'devmike117';  
-  const apiUrl = `https://api.github.com/users/${githubUsername}/repos?sort=created&direction=desc`;
-
-  // Función para obtener el contenido del README
-  async function getReadme(repoName) {
-    const readmeUrl = `https://api.github.com/repos/${githubUsername}/${repoName}/readme`;
-    const response = await fetch(readmeUrl);
-    const data = await response.json();
-    if (data.content) {
-      // README está codificado en base64
-      const decodedContent = atob(data.content);
-      return getSections(decodedContent);
-    }
-    return 'No hay README disponible.';
-  }
-
-  // Función para obtener la primera sección del README
-  function getSections(content) {
-    const sections = content.split(/^#\s+/m); // Divide por encabezados de nivel 
-    return sections.length > 1 ? sections[1] : 'No hay contenido disponible en las secciones.';
-  }
-
-  async function getLastRepo() {
-    try {
-      const response = await fetch(apiUrl);
-      const repos = await response.json();
-
-      if (repos.length > 0) {
-        const lastRepo = repos[0]; // El primer repositorio es el más reciente
-        const readmeSection = await getReadme(lastRepo.name); // Obtener la primera sección del README
-
-        const repoInfo = `
-          <h2>${lastRepo.name}</h2>
-          <p><strong>Descripción:</strong> ${readmeSection}</p>
-          <p><strong>Fecha de creación:</strong> ${new Date(lastRepo.created_at).toLocaleDateString()}</p>
-          <p><a href="${lastRepo.html_url}" target="_blank">Ver en GitHub</a></p>
-        `;
-        document.querySelector('.page-item-each').innerHTML += repoInfo;
-      } else {
-        document.querySelector('.page-item-each').innerHTML += '<p>No se encontraron repositorios.</p>';
-      }
-    } catch (error) {
-      document.querySelector('.page-item-each').innerHTML += '<p>Error al cargar los repositorios.</p>';
-    }
-  }
-
-  getLastRepo();
-</script>
-            </div>
                     <div class="page-item-wrap relative">
                         <div class="page-item flex-both-center absolute"></div>
                         
